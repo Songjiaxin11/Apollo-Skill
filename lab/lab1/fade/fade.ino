@@ -1,6 +1,6 @@
 #define red 3
 #define green 5
-#define blue 6
+#define blue 7
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(red, OUTPUT);

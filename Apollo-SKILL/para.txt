@@ -1,0 +1,42 @@
+Z-N: kp: 0.88 ki: 3.22344 kd: 0.16016 
+
+Z-N: kp: 0.86 ki: 4.20538 kd: 0.117247（short）
+
+SpinRadiusLCW: 5.10172
+SpinRadiusRCW: -4.28449
+
+SpinRadiusLCW: 5.06437
+SpinRadiusRCW: -4.2811
+
+SpinRadiusLCW: 5.05758
+SpinRadiusRCW: -4.2583
+
+SpinRadiusLCW: 5.05952
+SpinRadiusRCW: -4.24084
+
+SpinRadiusLCC: -4.35676
+SpinRadiusRCC: 4.89608
+
+SpinRadiusLCC: -4.41205
+SpinRadiusRCC: 4.89268
+
+SpinRadiusLCC: -4.38198
+SpinRadiusRCC: 4.89996
+
+SpinRadiusLCC: -4.40186
+SpinRadiusRCC: 4.88977
+
+SpinRadiusLCC: -4.34512
+SpinRadiusRCC: 4.87959
+
+
+-----------------------------------------------
+
+SpinRadiusLCW: -3.94645
+SpinRadiusRCW: 4.98095
+
+SpinRadiusLCW: -3.97312
+SpinRadiusRCW: 4.94167
+
+SpinRadiusLCW: -4.03666
+SpinRadiusRCW: 4.92469

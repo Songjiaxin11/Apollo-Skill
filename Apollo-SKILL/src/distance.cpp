@@ -32,6 +32,7 @@ void updateDistanceInAuto()
     {
         if (Distance.isObjectDetected() && Distance.objectDistance(distanceUnits::cm) <= 8 && mytimer.getTime() >= 900)
         {
+            moveIntaker(-100);
             turnTo(45);
             shoot(1);
             Controller.rumble("-");

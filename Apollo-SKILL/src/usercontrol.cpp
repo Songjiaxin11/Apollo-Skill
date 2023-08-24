@@ -76,9 +76,9 @@ void initializeVel()
 
 void intakerControl()
 {
-    if (R1 && !RIGHT&&!L1)
+    if (R1 && !RIGHT && !L1)
         moveIntaker(90);
-    else if ((RIGHT && !R1)||((L1 && !R1)))
+    else if ((RIGHT && !R1) || ((L1 && !R1)))
         moveIntaker(-100);
     else
         moveIntaker(0);
@@ -125,7 +125,7 @@ void flyWheelControl()
 
     if (R2 && !B)
     {
-        setFlyWheelSpeed(324-15);
+        setFlyWheelSpeed(324 - 15+10);
     }
     if (B && !R2)
     {
@@ -133,7 +133,7 @@ void flyWheelControl()
     }
     if (!B && !R2)
     {
-        setFlyWheelSpeed(329-18);
+        setFlyWheelSpeed(329 - 18);
     }
 }
 
@@ -182,45 +182,59 @@ void positionAiming()
     }
 
     lastFlag = flag;
-    // if (A)
-    // {
-    //     setAimingStatus(true);
-    // }
-    // else
-    // {
-    //     setAimingStatus(false);
-    //     Chassis::getInstance()->autoSetRobotVel(Vector(0, 0), 0);
-    // }
 }
 
-void head45Degree()
+void head135Degree()
 {
-    static MyTimer timerTrigger;
-    static bool flag = false, lastFlag = false;
-    if (A2 > -80)
+    static bool flag135 = false, lastFlag135 = false;
+    static MyTimer timer135;
+    if (!DOWN)
     {
-        timerTrigger.reset();
-        flag = false;
+        timer135.reset();
+        flag135 = false;
     }
     else
     {
-        if (!flag && timerTrigger.getTime() > 500)
+        if (!flag135 && timer135.getTime() > 200)
         {
-            flag = true;
+            flag135 = true;
         }
     }
-
-    if (flag)
+    if (flag135)
     {
-        // turnToLock(135);
-        turnToLock(45);
+        turnToLock(137);
     }
-    if (lastFlag && !flag)
+    if (lastFlag135 && !flag135)
     {
         Chassis::getInstance()->autoSetRobotVel(Vector(0, 0), 0);
     }
-
-    lastFlag = flag;
+    lastFlag135 = flag135;
+}
+void head225Degree()
+{
+    static bool flag225 = false, lastflag225 = false;
+    static MyTimer timer225;
+    if (!UP)
+    {
+        timer225.reset();
+        flag225 = false;
+    }
+    else
+    {
+        if (!flag225 && timer225.getTime() > 200)
+        {
+            flag225 = true;
+        }
+    }
+    if (flag225)
+    {
+        turnToLock(225);
+    }
+    if (lastflag225 && !flag225)
+    {
+        Chassis::getInstance()->autoSetRobotVel(Vector(0, 0), 0);
+    }
+    lastflag225 = flag225;
 }
 
 void WallShoot()
@@ -238,7 +252,7 @@ void WallShoot()
     LAngel = 180 + 15.72 - 1.22, RAngel = 256 - 180 + 10;
 #endif
 #ifdef COMPETITION_LEFT_BLUE
-    LAngel = 180 + 15.72 - 1.22, RAngel = 256 - 180 + 10;
+    LAngel = 200, RAngel = 256 - 180 + 10;//LAngel=180 + 15.72 - 1.22
 #endif
     if (A2 < 100)
     {
@@ -331,13 +345,12 @@ void usrCtlThread(void *childThread)
             flyWheelControl();
             deployerControl();
             WallShoot();
-            // head45Degree(); // lock heading 也是A2下拉到底 和全场定位自瞄只能同时存在一个
+            head135Degree();
+            head225Degree();
             initializeVel();
             // positionAiming();
 
             // 视觉自瞄
-          
-
 
         } //!!!!!!!!!!!!!!!!!!!!!!
         this_thread::sleep_for(RefreshTime);

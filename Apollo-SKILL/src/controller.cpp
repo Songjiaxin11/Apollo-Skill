@@ -13,7 +13,7 @@ int t, A1, A2, A3, A4, L1, L2, R1, R2, X, Y, A, B, LEFT, RIGHT, UP, DOWN,
 
 bool press_X = false, press_Y = false, press_A = false, press_B = false, press_UP = false, press_DOWN = false, press_LEFT = false, press_RIGHT = false;
 bool release_R2 = false, press_R2 = false;
-
+bool release_DOWN = false;
 
 /**
  * @brief 更新手柄按键和摇杆的输入
@@ -74,6 +74,8 @@ void defineController()
             press_R2 = true;
         if (last_R2 && !R2)
             release_R2 = true;
+        if (DOWN && !last_DOWN)
+            release_DOWN = true;
 
         this_thread::sleep_for(10);
     }

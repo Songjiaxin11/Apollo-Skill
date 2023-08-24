@@ -81,7 +81,7 @@ void aimPreciselyAt(double _x, double _y, double _offset)
     pid.setDTolerance(1);
     pid.setJumpTime(120);
     MyTimer mytimer;
-    while (!pid.targetArrived() && mytimer.getTime() <= 1500)
+    while (!pid.targetArrived() && mytimer.getTime() <= 1200)
     {
         double d = _tarAng - IMUHeading();
         while (d < -180){

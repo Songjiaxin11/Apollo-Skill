@@ -8,6 +8,7 @@ extern int t, A1, A2, A3, A4, L1, L2, R1, R2, X, Y, A, B, LEFT, RIGHT, UP, DOWN,
 
 extern bool press_X, press_Y, press_A, press_B, press_UP, press_DOWN, press_LEFT, press_RIGHT;
 extern bool press_R2, release_R2;
+extern bool release_DOWN;
 // extern bool isUsrCtl, last_isUsrCtl; 
 
 /**

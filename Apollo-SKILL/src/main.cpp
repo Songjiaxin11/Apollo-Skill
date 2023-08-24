@@ -37,6 +37,7 @@ int main()
     cout << "start" << endl;
     Inertial.calibrate();
     waitUntil(!Inertial.isCalibrating());
+    this_thread::sleep_for(200);
     cout << "calibrated!" << endl;
     Controller.Screen.setCursor(5, 1);
     Controller.Screen.print("         calibrated!");
@@ -47,8 +48,8 @@ int main()
     thread FlyWheelControl(updateFlyWheel);
     thread UpdatePos(updatePosition);
     thread UpdateChassis(updateChassis);
-    // thread AutonAiming(autonAiming);
-    thread AutonAimingVision(autonAiming_vision);
+    thread AutonAiming(autonAiming);
+    // thread AutonAimingVision(autonAiming_vision);
     thread TController(defineController);
     thread TestDistance(updateDistance);
     // thread ShootInAuto(updateDistanceInAuto);

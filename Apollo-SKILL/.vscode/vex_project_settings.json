@@ -1,6 +1,6 @@
 {
 	"project": {
-		"name": "old-skill",
+		"name": "skill",
 		"slot": 3,
 		"description": "Empty V5 C++ Project",
 		"platform": "V5",

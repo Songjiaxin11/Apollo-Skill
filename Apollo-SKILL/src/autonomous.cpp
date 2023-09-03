@@ -53,19 +53,21 @@ void autonomous()
     this_thread::sleep_for(400);
     aimPreciselyAt(299.739, 21.2025, 5 + ofset);
     shoot(3, 300);
+    setFlyWheelSpeed(332 + 3 - diff);
     this_thread::sleep_for(100);
     shoot(3, 400); // original
-    setFlyWheelSpeed(337- diff - 6);
-    aimPreciselyAt(299.739, 21.2025, 3.8 + ofset);
+    setFlyWheelSpeed(337 - diff - 6);
+    aimPreciselyAt(299.739, 21.2025, 3.5 + ofset);
     this_thread::sleep_for(50);
+    moveIntaker(100);
     shoot(4, 400);
-    moveIntaker(90);
+
     /*------------------------------------------------------------------------------------------*/
     // 三连
     quickMoveToWithHeading(204.73 - 5, 31.885, 45, 100); // first
     this_thread::sleep_for(100);
-    quickMoveToWithHeading(204.73 - 5, 95.5197, 45, 60);
-    this_thread::sleep_for(100);
+    quickMoveToWithHeading(204.73 - 5, 95.5197, 45, 70);
+    this_thread::sleep_for(200);
     setFlyWheelSpeed(325 - 6 - 2 - diff);
     aimPreciselyAt(299.739, 21.2025, 0.3 + ofset);
     moveIntaker(-100);
@@ -73,19 +75,19 @@ void autonomous()
     setFlyWheelSpeed(342 - 2 - 2 - diff);
     this_thread::sleep_for(50);
     shoot(1);
-    setFlyWheelSpeed(342 - 5 - 2 - diff);
+    setFlyWheelSpeed(342 - 5 - 4 - diff);
     this_thread::sleep_for(50);
     shoot(1);
 
     /*------------------------------------------------------------------------------------------*/
     // 三斜
-    moveIntaker(85);
+    moveIntaker(100);
     turnTo(45);
     quickMoveToWithHeading(172.269, 103.18 - 6, 45, 100);           // 第一个
     quickMoveToWithHeading(172.269 + 30, 103.18 - 6 + 30, 45, 100); // 第er个
     this_thread::sleep_for(100);
-    quickMoveToWithHeading(249.11 + 60 - 16, 185.445 + 20, 45, 60); // 第三个过冲
-    this_thread::sleep_for(100);
+    quickMoveToWithHeading(249.11 + 60 - 10, 185.445 + 26, 45, 70); // 第三个过冲
+    this_thread::sleep_for(200);
     setFlyWheelSpeed(331 - 8 - diff);
 
     // 三竖
@@ -98,23 +100,24 @@ void autonomous()
     setFlyWheelSpeed(333 + 2 - diff);
     shoot(1);
     setFlyWheelSpeed(333 + 3 + 5 - diff);
+    moveIntaker(100);
     shoot(1);
-    moveIntaker(85);
     turnTo(135);
-    quickMoveToWithHeading(233.283, 117.792 - 6, 135, 100); // 第一个盘
+    quickMoveToWithHeading(224, 114 - 5 - 4, 143, 70);
+    quickMoveToWithHeading(233.283, 117.792 - 6, 143, 100); // 第一个盘
     this_thread::sleep_for(100);
-    quickMoveToWithHeading(315.169 + 10, 117.233 - 30 - 5 + 3, 135, 70);
+    quickMoveToWithHeading(315.169 + 10 + 4, 117.233 - 30 - 5 + 3, 143, 70);
     this_thread::sleep_for(200);
     setFlyWheelSpeed(350 - 25 - diff - 10);
     moveIntaker(-100);
     Piston_Angler.set(true);
-    aimPreciselyAt(299.739, 21.2025, 3 + ofset);
+    aimPreciselyAt(299.739, 21.2025, 2.6 + ofset);
     moveIntaker(-100);
     shoot(1);
     setFlyWheelSpeed(337 - diff - 10);
     shoot(1);
     setFlyWheelSpeed(337 - diff - 10);
-    moveIntaker(85);
+    moveIntaker(100);
     shoot(1);
     timerForwardWithHeading(200 + 200, 200 - 100, 0); // 倒退防撞
     Piston_Angler.set(false);
@@ -127,12 +130,12 @@ void autonomous()
     // 途径点
     quickMoveToWithHeading(183 + 8 - 10, 114 + 8 - 10, 225, 100);
     Piston_IntakerLifter.set(true);
-    quickMoveToWithHeading(156.437 - 30, 81.734 - 30 - 8, 236, 70); // 第一个三盘
+    quickMoveToWithHeading(156.437 - 30 + 10 + 5 - 5, 81.734 - 30 + 5 + 5 - 5, 236, 70); // 第一个三盘
     // quickMoveToWithHeading(150,81-20,225,90);
-    moveIntaker(85);
-    this_thread::sleep_for(100);
-    timerForwardWithHeading(100, 200, 0);
-    this_thread::sleep_for(20);
+    moveIntaker(100);
+    this_thread::sleep_for(200);
+    // timerForwardWithHeading(40, 100, 0);
+    // this_thread::sleep_for(100);
     Piston_IntakerLifter.set(false);
     this_thread::sleep_for(250);
     Piston_IntakerLifter.set(true);
@@ -140,18 +143,19 @@ void autonomous()
     Piston_IntakerLifter.set(false);
     this_thread::sleep_for(250);
     Piston_IntakerLifter.set(true);
-    this_thread::sleep_for(300); // 第二个
+    this_thread::sleep_for(250); // 第二个
     Piston_IntakerLifter.set(false);
+    this_thread::sleep_for(150);
     quickMoveToWithHeading(160, -15, 282.1, 100);
     moveIntaker(-100);
     Piston_Angler.set(true);
     quickMoveToWithHeading(214.645, -15 + 5, 255.96 + 3, 100);
-    aimPreciselyAt(299.739, 21.2025, 3.5 + 3 + 8 + ofset);
+    aimPreciselyAt(299.739, 21.2025, 3.5 + 3 + 8 + ofset + 2);
     shoot(3);
     Piston_Angler.set(false);
 
     // 吃中线两盘
-    moveIntaker(85);
+    moveIntaker(100);
     // setFlyWheelSpeed(355 - diff);
     // timerForwardWithHeading(200 + 200, 200 - 100, 0); // 退出来
     // // turnTo(0);
@@ -202,6 +206,7 @@ void autonomous()
     Chassis::getInstance()->setStopBrakeType(brakeType::hold);
     quickMoveToWithHeading(79.0851 - 35 + 5, 10 + 5, 190, 100);
     quickMoveToWithHeading(79.0851 - 35 + 5, -3.52489 - 10, 185, 100); //
+    this_thread::sleep_for(100);
     moveIntaker(-1);
     this_thread::sleep_for(200);
     timerForwardWithHeading(50, 300, 0);
@@ -218,17 +223,18 @@ void autonomous()
     moveIntaker(100);
 
     // roller2
-    quickMoveToWithHeading(11, 33.660 - 5, -100, 100);
+    quickMoveToWithHeading(11 - 3, 33.660 - 5, -100, 100);
+    this_thread::sleep_for(150);
     moveIntaker(-1);
-    this_thread::sleep_for(300);
-    timerForwardWithHeading(50, 300, 0); // 向前冲!
+    this_thread::sleep_for(250);
+    timerForwardWithHeading(40, 300, 0); // 向前冲!
     this_thread::sleep_for(100);
     Chassis::getInstance()->autoSetRobotVel(Vector(0, 20), -25);
     Motor_Intaker1.resetPosition();
     moveIntaker(-100);
     MyTimer timer3;
     timer3.reset();
-    waitUntil(Motor_Intaker1.position(rotationUnits::deg) <= -200 && timer3.getTimeDouble() <= 1000); // 转动Roller
+    waitUntil(Motor_Intaker1.position(rotationUnits::deg) <= -220 && timer3.getTimeDouble() <= 1000); // 转动Roller
     moveIntaker(0);
     timerForwardWithHeading(-200, 150, 0);
     this_thread::sleep_for(200);
@@ -272,7 +278,7 @@ void autonomous()
     setFlyWheelSpeed(396 - 16.999 + 3); // 开飞轮
 
     // 中线三盘
-    moveIntaker(80);
+    moveIntaker(90);
     Piston_IntakerLifter.set(true);
     quickMoveToWithHeading(-5, 55, 0, 100);
     this_thread::sleep_for(100);
@@ -286,7 +292,7 @@ void autonomous()
     this_thread::sleep_for(300); // 第二个
     Piston_IntakerLifter.set(false);
     this_thread::sleep_for(300);
-    moveIntaker(80); // 重开intaker
+    moveIntaker(100); // 重开intaker
 
 #ifdef blocking
     timerForwardWithHeading(-100, 200, 0);
@@ -302,7 +308,7 @@ void autonomous()
     this_thread::sleep_for(100);
 
     // 第二个三盘
-    moveIntaker(80); // 重开intaker
+    moveIntaker(100); // 重开intaker
     setFlyWheelSpeed(398 - 16.999 + 3 - 0.5);
     Piston_IntakerLifter.set(true);
     quickMoveToWithHeading(19.124, 32.16 - 4, 95.894, 100);
@@ -325,7 +331,7 @@ void autonomous()
     shoot(3);
 
     // 中线一组盘
-    moveIntaker(80); // 重开intaker
+    moveIntaker(100); // 重开intaker
     setFlyWheelSpeed(383 - 16.999 + 5);
     this_thread::sleep_for(100);
     quickMoveToWithHeading(36.4156 - 2 - 1, 45 - 4 + 2.5 - 1, 15.113, 100); // 第一个
@@ -342,7 +348,7 @@ void autonomous()
     this_thread::sleep_for(100);
     moveIntaker(-100); // 吐盘防卡
     shoot(3);
-    moveIntaker(80); // 重开intaker
+    moveIntaker(100); // 重开intaker
 
     // barrier * 3
     setFlyWheelSpeed(395 - 16.999 + 10);
@@ -354,7 +360,7 @@ void autonomous()
     aimPreciselyAt(133.038, 262.32, 4.8);
     this_thread::sleep_for(100);
     moveIntaker(-100);
-    moveIntaker(80);
+    moveIntaker(100);
     shoot(3);
     this_thread::sleep_for(50);
 

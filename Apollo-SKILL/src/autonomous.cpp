@@ -12,6 +12,7 @@ using namespace std;
 using namespace vex;
 // 技能赛一定要打开deploy!!!
 #define deploy
+//
 
 // 第一个三盘防挡
 #define blocking
